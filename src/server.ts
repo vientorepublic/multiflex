@@ -1,8 +1,9 @@
-import { NestFactory } from '@nestjs/core';
+import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './modules/app.module';
+import { NestFactory } from '@nestjs/core';
 import { cpus } from 'os';
 import cluster from 'cluster';
-import { NestExpressApplication } from '@nestjs/platform-express';
+import consola from 'consola';
 
 export class Bootstrap {
   public port: number;
@@ -15,17 +16,20 @@ export class Bootstrap {
     const app = await NestFactory.create<NestExpressApplication>(AppModule);
     app.disable('x-powered-by');
     if (cluster.isPrimary) {
-      console.log(`Master process ${process.pid} is running.`);
+      consola.success(`Master process PID ${process.pid} is running.`);
       for (let i = 0; i < numCPUs; i++) {
         cluster.fork();
       }
 
-      cluster.on('exit', (worker) => {
-        console.warn(`worker ${worker.process.pid} died`);
+      cluster.on('exit', (worker, code, signal) => {
+        consola.warn(
+          `worker ${worker.process.pid} died. Exit code ${code}, Signal: ${signal}`,
+        );
+        cluster.fork();
       });
     } else {
-      await app.listen(this.port, '0.0.0.0');
-      console.log(`Worker ${process.pid} started.`);
+      app.listen(this.port, '0.0.0.0');
+      consola.info(`Worker ID ${cluster.worker?.id} started.`);
     }
   }
 }

@@ -9,7 +9,7 @@ export class MainService {
     return {
       CURRENT_GIT_SHA,
       CURRENT_GIT_BRANCH,
-      WORKER_ID: cluster.worker.id,
+      WORKER_ID: cluster.worker?.id || 0,
     };
   }
 }
