@@ -1,6 +1,7 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
+      USE_CLUSTER: string;
       CURRENT_GIT_SHA: string;
       CURRENT_GIT_BRANCH: string;
       UPLOAD_PATH: string;

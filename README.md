@@ -1,6 +1,6 @@
 # Multi Flex
 
-Nest.js based file upload/download server implementation that supports multi-threading.
+Nest.js based file upload/download server implementation
 
 # Requirements
 
@@ -8,6 +8,9 @@ Nest.js based file upload/download server implementation that supports multi-thr
 - MySQL or MariaDB Database Server
 
 # Config
+
+> [!NOTE]  
+> Upload/Download services are created exclusively for each request by default. Selectively enable the `USE_CLUSTER` option if necessary.
 
 Create `.env` and add below:
 

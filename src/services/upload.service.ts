@@ -1,15 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
-import { join } from 'path';
-import { MessageDto } from 'src/dto/message.dto';
 import { FileEntity } from 'src/entities/file.entity';
+import { Injectable, Scope } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { MessageDto } from 'src/dto/message.dto';
 import { Repository } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
+import { join } from 'path';
 
 const uploadPath = process.env.UPLOAD_PATH || join('..', '..', 'upload');
 
-@Injectable()
+@Injectable({ scope: Scope.REQUEST })
 export class UploadService {
   constructor(
     @InjectRepository(FileEntity)
