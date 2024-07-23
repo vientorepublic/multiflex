@@ -1,17 +1,12 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'files' })
 export class FileEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @CreateDateColumn()
-  upload_at: Date;
+  @Column({ type: 'varchar' })
+  upload_at: number;
 
   @Column()
   original_filename: string;

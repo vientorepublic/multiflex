@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { FileEntity } from 'src/entities/file.entity';
 import { Injectable, Scope } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { MessageDto } from 'src/dto/message.dto';
+import { UploadDto } from 'src/dto/upload.dto';
 import { Repository } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid';
 import { join } from 'path';
@@ -16,7 +16,8 @@ export class UploadService {
     private fileRepository: Repository<FileEntity>,
   ) {}
 
-  public async upload(file: Express.Multer.File): Promise<MessageDto> {
+  public async upload(file: Express.Multer.File): Promise<UploadDto> {
+    const now = new Date().getTime();
     const identifier = uuidV4();
     const isExists = existsSync(uploadPath);
     if (!isExists) {
@@ -27,11 +28,13 @@ export class UploadService {
     });
     const data = this.fileRepository.create({
       identifier,
+      upload_at: now,
       original_filename: file.originalname,
     });
     this.fileRepository.save(data);
     return {
       message: 'SUCCESS',
+      identifier,
     };
   }
 }
