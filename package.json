@@ -1,8 +1,8 @@
 {
   "name": "multiflex",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "NestJS file upload/download server implementation example",
+  "author": "vientorepublic",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
