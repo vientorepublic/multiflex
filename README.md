@@ -25,3 +25,7 @@ DB_USER=
 DB_PASSWORD=
 DB_DATABASE=
 ```
+
+# License
+
+This project is released under the MIT License.
