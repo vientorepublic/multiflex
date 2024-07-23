@@ -23,9 +23,7 @@ export class UploadService {
     if (!isExists) {
       mkdirSync(uploadPath, { recursive: true });
     }
-    writeFileSync(join(uploadPath, identifier), file.buffer, {
-      encoding: 'utf-8',
-    });
+    writeFileSync(join(uploadPath, identifier), file.buffer);
     const data = this.fileRepository.create({
       identifier,
       upload_at: now,
