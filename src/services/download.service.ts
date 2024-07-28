@@ -8,7 +8,8 @@ import { Response } from 'express';
 import { extname, join } from 'path';
 import { contentType } from 'mime-types';
 
-const uploadPath = process.env.UPLOAD_PATH || join('..', '..', 'upload');
+const uploadPath =
+  process.env.UPLOAD_PATH || join(__dirname, '..', '..', 'upload');
 const period = Number(process.env.EXPIRES) || 86400000;
 
 @Injectable({ scope: Scope.REQUEST })
