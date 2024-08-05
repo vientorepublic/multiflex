@@ -4,6 +4,7 @@ import { UploadModule } from './upload.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeormConfig } from 'src/database/database.provider';
 import { DownloadModule } from './download.service';
+import { TasksModule } from './tasks.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { DownloadModule } from './download.service';
     MainModule,
     UploadModule,
     DownloadModule,
+    TasksModule,
   ],
   controllers: [],
   providers: [],
