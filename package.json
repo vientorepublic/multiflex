@@ -34,7 +34,7 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "@nestia/benchmark": "^0.1.2",
+    "@nestia/benchmark": "^0.2.0",
     "@nestia/sdk": "^3.8.0",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
