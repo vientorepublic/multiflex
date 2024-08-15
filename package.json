@@ -27,14 +27,14 @@
     "dotenv": "^16.4.5",
     "mime-types": "^2.1.35",
     "mysql2": "^3.10.3",
-    "reflect-metadata": "^0.1.13",
+    "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.20",
     "typia": "^6.5.4",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "@nestia/benchmark": "^0.1.2",
+    "@nestia/benchmark": "^0.2.0",
     "@nestia/sdk": "^3.8.0",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
