@@ -1,11 +1,12 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { MainModule } from './main.module';
-import { UploadModule } from './upload.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { LoggerMiddleware } from 'src/middlewares/logger.middleware';
 import { typeormConfig } from 'src/database/database.provider';
 import { DownloadModule } from './download.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UploadModule } from './upload.module';
+import { StatusModule } from './status.module';
 import { TasksModule } from './tasks.module';
-import { LoggerMiddleware } from 'src/middlewares/logger.middleware';
+import { MainModule } from './main.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { LoggerMiddleware } from 'src/middlewares/logger.middleware';
     MainModule,
     UploadModule,
     DownloadModule,
+    StatusModule,
     TasksModule,
   ],
   controllers: [],
