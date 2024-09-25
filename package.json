@@ -41,7 +41,7 @@
     "@nestia/sdk": "^3.8.0",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
-    "@types/express": "^4.17.17",
+    "@types/express": "^5.0.0",
     "@types/mime-types": "^2.1.4",
     "@types/multer": "^1.4.11",
     "@types/node": "^20.3.1",
